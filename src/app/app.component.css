@@ -1,0 +1,44 @@
+/* Default styles */
+mat-drawer-container {
+    height: 100vh;
+}
+
+mat-drawer {
+    width: 80px; /* Full width when opened */
+    background-color: #4a4e51;
+    transition: width 0.3s ease; /* Smooth transition */
+}
+
+.mat-drawer .logout{
+    margin-top: 100%;
+}
+
+/* Ensure drawer content is responsive */
+mat-drawer-content {
+    padding: 0 30px 0 30px;
+    background-color:  #1d2226 !important;;
+    overflow-x: hidden;    
+}
+
+mat-drawer:hover{
+    width: 268px;
+}
+
+/* Add styles for the toggle button */
+.toggle-button {
+    left: -50px;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    mat-drawer {
+        width: 20vw !important; /* Adjust for smaller screens, still 20% */
+    }
+
+    .toggle-button {
+        display: block;
+    }
+}

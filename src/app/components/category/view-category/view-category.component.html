@@ -1,0 +1,25 @@
+<!-- add-order.component.html -->
+<div style="color: white; background-color: #4a4e51;" class="dialog-content">
+  <h2 class="dialog-title">View Category</h2>
+
+  <div class="close-icon" mat-dialog-close>
+    <span class="icon-close">&times;</span>
+  </div>
+
+  <form [formGroup]="categoryFormGroup" class="form-container">
+    <div class="form-fields-container">
+        
+        <div class="form-field">
+            <label for="category-name">Category Name</label>
+            <input type="text" id="category-name" formControlName="name" readonly>
+        </div>
+
+        <div class="form-field">
+            <label for="status">Status</label>
+            <input type="text" id="status" formControlName="status" readonly>
+        </div>
+
+    </div>
+  </form>
+</div>
+<!-- add-order.component.html -->

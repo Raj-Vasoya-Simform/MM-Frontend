@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/ngx-toastr/toastr.css';
+
+html {
+    --mdc-outlined-text-field-outline-color: white !important;
+    --mdc-outlined-text-field-hover-outline-color: white !important;
+    --mdc-outlined-text-field-focus-outline-color: white !important;
+    --mdc-outlined-text-field: white !important;
+    --mdc-checkbox-selected-icon-color: blue !important;
+    --mdc-checkbox-selected-focus-icon-color: blue !important;
+    --mdc-checkbox-selected-hover-icon-color: blue !important;
+    --mdc-checkbox-selected-pressed-icon-color: blue !important;
+    --mdc-checkbox-selected-focus-state-layer-color: white !important;
+    --mdc-checkbox-selected-hover-state-layer-color: white !important;
+    --mdc-checkbox-selected-pressed-state-layer-color: white !important;
+    --mdc-outlined-text-field-label-text-color: white !important;
+    --mdc-text-field--outlined: white !important;
+    --mat-paginator-container-text-color: white !important;
+    --mat-paginator-enabled-icon-color: white !important;
+    --mat-paginator-disabled-icon-color: white !important;
+    --mdc-outlined-text-field-input-text-placeholder-color: white !important;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color:  #1d2226 !important;
+}
+
+.text-color{
+    color: white !important;
+  }
+
+.mat-mdc-tab .mdc-tab__text-label {
+    /* Your custom styles here */
+    color: white !important;
+    font-size: 16px;
+  }
+.mdc-checkbox__native-control .mdc-checkbox--selected {
+    /* Your custom styles here */
+    color: white !important;
+    font-size: 16px;
+  }

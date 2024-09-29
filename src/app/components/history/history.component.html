@@ -1,0 +1,36 @@
+<div class="history-accordion">
+  <h2 class="text-color">History</h2>
+
+  <!-- Module Filter Dropdown on Right Corner -->
+  <div class="filter-container">
+    <mat-form-field appearance="outline">
+      <mat-label class="text-color">All History</mat-label>
+      <mat-select [(ngModel)]="selectedModule" (selectionChange)="filterHistory()">
+        <mat-option *ngFor="let module of modules" [value]="module">
+          {{ module }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="scrollable-history">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let entry of filteredHistory | slice: 0:displayCount">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-color">
+            <mat-icon [ngClass]="getIconClass(entry.action)">
+              {{ getIcon(entry.action) }}
+            </mat-icon>
+            &nbsp;&nbsp; {{ entry.module }} - {{ entry.action | titlecase }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expansion-content">
+          <p class="text-color">{{ entry.message }}</p>
+          <span class="text-color expansion-date">{{ entry.action | titlecase }} on : {{ entry.history_date | date: 'medium' }}</span>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <p *ngIf="filteredHistory.length > displayCount" (click)="viewMore()" class="view-more-button">View More</p>
+</div>

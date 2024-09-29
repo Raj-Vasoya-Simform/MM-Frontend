@@ -1,0 +1,125 @@
+table {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(241, 239, 239, 0.959);
+  border-collapse: collapse; /* Collapse borders for better look */
+}
+
+.table-container {
+  max-height: 400px; /* Set maximum height for the table */
+  overflow-y: auto; /* Allow vertical scrolling */
+  position: relative; /* Enable positioning for sticky headers */
+}
+
+.table-container th.mat-header-cell {
+  position: sticky;
+  top: 0;
+  background-color: #4a4e51; /* Header background */
+  z-index: 1; /* Ensure header is above other content */
+}
+
+.mat-paginator {
+  position: sticky;
+  bottom: 0; /* Stick to the bottom of the table */
+  z-index: 1; /* Ensure paginator is above other content */
+}
+
+.button-and-search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.search-container {
+  width: 250px;
+  margin: 10px 20px 5px 10px; 
+  float: right;
+}
+
+.btn {
+  margin-left: 10px;
+  background-color: #9AB3F5;
+  color: white;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 250px;
+  margin: 10px 20px 5px 10px; 
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 100%;
+}
+
+.custom-order-date {
+  min-width: 150px;
+  color: white;
+}
+
+.matCol {
+  color: white;
+}
+
+/* Base style for the badge */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize; /* Capitalizes the first letter */
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Styles for different status types */
+.status-delivered {
+  background-color: green;
+}
+
+/* Primary button style */
+.mat-button[color="primary"],
+.mat-raised-button[color="primary"] {
+  background-color: #007bff; /* Adjust the color to your preference */
+  color: #fff;
+}
+
+/* Custom scrollbar */
+  .table-container::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Make scrollbar thumb circular */
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #6b6b6b; /* Darker color on hover */
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background-color: #2e3134; /* Scrollbar track (background) color */
+  }
+
+/* Media Query for larger screens */
+@media only screen and (min-width: 768px) {
+  .filter-container {
+      margin: 10px 20px 5px 10px; /* Adjust margin for spacing */
+  }
+
+  td,
+  th {
+      width: 25%;
+  }
+}

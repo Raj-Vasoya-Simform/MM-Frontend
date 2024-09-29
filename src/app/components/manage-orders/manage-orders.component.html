@@ -1,0 +1,106 @@
+<div class="card mb-4" style="color: white; background-color: #4a4e51;">
+  <h3 class="mb-0 px-3 py-4" style="font-size: 20px;"><b>Manage Orders</b></h3>
+</div>
+
+<mat-tab-group style="background-color: #4a4e51; color: white;" class="custom-tab-group" [selectedIndex]="selectedTabIndex" (selectedTabChange)="onTabChanged($event)">
+  <mat-tab class="tab-content" label="All Orders">
+    <div class="button-and-search-container">
+      <button class="btn" (click)="addOrder()">Add Order</button>
+      <div class="filter-container">
+        <mat-form-field appearance="outline">
+          <mat-label class="text-color">Search</mat-label>
+          <input class="text-color" matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="mat-elevation-z8 table-container">
+      <table mat-table [dataSource]="dataSource" matSort class="custom-table">
+
+        <ng-container matColumnDef="select">
+          <th mat-header-cell class="matCol" *matHeaderCellDef>
+            <mat-checkbox (change)="toggleAllRows()" [checked]="isAllSelected()"></mat-checkbox>
+          </th>
+          <td mat-cell class="matCol" *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)"></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="order_no">
+          <th mat-header-cell *matHeaderCellDef class="custom-order-date" mat-sort-header> Order No </th>
+          <td mat-cell class="matCol" *matCellDef="let row"> {{row.order_no}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gstNoSupplier">
+          <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Customer </th>
+          <td mat-cell class="matCol" *matCellDef="let row"> {{row.gstNoSupplier}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Quantity </th>
+          <td mat-cell class="matCol" *matCellDef="let row"> {{row.quantity}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="order_date">
+          <th mat-header-cell class="matCol" *matHeaderCellDef class="custom-order-date" mat-sort-header> Order Date </th>
+          <td mat-cell class="matCol" *matCellDef="let row">
+            {{row.order_date | date:'dd-MM-yyyy':'UTC'}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="duration">
+          <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Duration </th>
+          <td mat-cell class="matCol" *matCellDef="let row"> {{row.duration}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell class="custom-order-date" *matHeaderCellDef> Status </th>
+          <td mat-cell class="matCol" *matCellDef="let element">
+            <span [ngClass]="getStatusClass(element.status)" class="status-badge">
+              {{ element.status }}
+            </span>
+          </td>
+        </ng-container>        
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell class="matCol" *matHeaderCellDef> Actions </th>
+          <td mat-cell class="matCol" *matCellDef="let row">
+            <div class="btns">
+              <button mat-button class="action-button" color="primary" (click)="updateOrder(row)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-button class="action-button" color="warn" (click)="deleteOrder(row)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-button class="action-button" color="primary">
+                <mat-icon style="color: green;">picture_as_pdf</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator style="color: white; background-color: #4a4e51;" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </mat-tab>
+  <mat-tab label="Pending Orders" class="tab-content">
+    <app-pending-order></app-pending-order>
+  </mat-tab>
+  <mat-tab label="In Progress Orders" class="tab-content">
+    <app-progress-order></app-progress-order>
+  </mat-tab>
+  <mat-tab label="Delivered Orders" class="tab-content">
+    <app-delivered-order></app-delivered-order>
+  </mat-tab>
+  <mat-tab label="Cancelled Orders" class="tab-content">
+    <app-cancelled-order></app-cancelled-order>
+  </mat-tab>
+</mat-tab-group>

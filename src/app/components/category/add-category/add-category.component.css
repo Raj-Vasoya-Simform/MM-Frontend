@@ -1,0 +1,45 @@
+/* add-order.component.css */
+
+.dialog-title {
+    font-size: 24px;
+    /* margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center; */
+  }
+  
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .dialog-content {
+    padding: 20px;
+  }
+  
+  .form-container {
+    width: 100%;
+  }
+  
+  .form-fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  button {
+    min-width: 100px;
+  }
+  

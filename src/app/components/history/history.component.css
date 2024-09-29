@@ -1,0 +1,193 @@
+.history-accordion {
+  margin: 20px;
+  background-color: #4a4e51;
+  padding: 50px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.history-item {
+  background-color: #f0f0f0; /* Light gray */
+}
+
+.filter-container {
+  position: absolute;
+  top: 10px;
+  right: 37px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.scrollable-history {
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Custom scrollbar styles */
+.scrollable-history::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.scrollable-history::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Make scrollbar thumb circular */
+}
+
+.scrollable-history::-webkit-scrollbar-thumb:hover {
+  background-color: #6b6b6b; /* Darker color on hover */
+}
+
+.scrollable-history::-webkit-scrollbar-track {
+  background-color: #2e3134; /* Scrollbar track (background) color */
+}
+
+/* Styles for expansion panels */
+.mat-expansion-panel {
+  background-color: #777a7c;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.expansion-content {
+  background-color: #4a4e51; /* Dark gray background */
+  margin: 0 10px 15px; /* 0 for top, 10px for left and right, and 15px for bottom */
+  padding: 10px; /* Adjust padding as needed */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid black; /* Optional: Add a border if needed */
+  border-radius: 10px ;
+}
+
+
+.mat-panel-title {
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.mat-panel-title mat-icon {
+  margin-right: 10px;
+}
+
+.mat-icon {
+  border-radius: 50%;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+}
+
+.icon.added {
+  background-color: rgb(6, 158, 6); /* Green background for add action */
+}
+
+.icon.updated {
+  background-color: blue; /* Blue background for update action */
+}
+
+.icon.deleted {
+  background-color: rgb(250, 7, 7); /* Red background for delete action */
+}
+
+:host {
+  --mat-select-disabled-arrow-color: white !important;
+  --mat-select-enabled-arrow-color: white !important;
+  --mat-select-focused-arrow-color: white !important;
+  --mat-select-enabled-trigger-text-color: white !important;
+}
+
+.expansion-content {
+  font-size: 16px;
+  color: white;
+}
+
+.expansion-date {
+  font-size: 14px;
+  color: rgb(236, 234, 234);
+}
+
+.text-color {
+  color: white;
+}
+
+.view-more-button {
+  margin-top: 1%;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .history-accordion {
+    padding: 30px;
+    margin: 10px;
+  }
+
+  .filter-container {
+    position: relative;
+    right: 0;
+    margin-top: 10px;
+    text-align: right;
+  }
+
+  .mat-panel-title {
+    font-size: 16px; /* Reduce font size */
+  }
+
+  .mat-icon {
+    font-size: 16px; /* Reduce icon size */
+    padding: 4px;
+  }
+
+  .expansion-content {
+    font-size: 14px; /* Smaller content font size */
+  }
+
+  .expansion-date {
+    font-size: 12px;
+  }
+}
+
+/* Responsive styles for very small screens (mobile) */
+@media (max-width: 480px) {
+  .history-accordion {
+    padding: 20px;
+    margin: 5px;
+  }
+
+  .filter-container {
+    position: relative;
+    right: 0;
+    margin-top: 5px;
+    text-align: left; /* Move the filter dropdown to the left */
+  }
+
+  .mat-expansion-panel {
+    margin-bottom: 10px;
+  }
+
+  .mat-panel-title {
+    font-size: 14px; /* Further reduce font size */
+  }
+
+  .mat-icon {
+    font-size: 14px;
+    padding: 3px;
+  }
+
+  .expansion-content {
+    font-size: 12px; /* Even smaller content font size */
+  }
+
+  .expansion-date {
+    font-size: 10px;
+  }
+
+  .view-more-button {
+    font-size: 14px;
+  }
+}

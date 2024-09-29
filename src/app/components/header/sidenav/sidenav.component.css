@@ -1,0 +1,106 @@
+/* Style for profile image container */
+
+
+mat-divider {
+    border-radius: 20px;
+    background: rgb(224, 208, 208);
+}
+
+.mat-subheader {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.mx-2 {
+    color: white;
+}
+
+.headline {
+    color: white;
+}
+
+mat-icon {
+    display: inline-flex;
+    vertical-align: top;
+}
+
+.link-active {
+    background: #1d2226 !important;
+}
+
+.headline:hover {
+    background-color: #1d2226;
+}
+
+
+
+/* Styles for the sidenav toggle button */
+.sidenav-toggle {
+    position: absolute;
+    top: 40px; /* Adjust as needed to vertically center it */
+    right: 0px; /* Half of the button will be outside the sidenav */
+    background-color: #1d2226;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensures it's on top of other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidenav-toggle:hover {
+    background-color: #4a4e51;
+}
+
+/* Ensure the mat-icon is appropriately sized for the arrow */
+.mat-icon {
+    font-size: 24px;
+}
+
+/* Adjust the sidenav width and transition */
+mat-sidenav {
+    width: 250px; /* Full width when opened */
+    transition: width 0.3s ease; /* Smooth transition */
+}
+
+/* Sidenav closed state */
+mat-sidenav.closed {
+    width: 50px !important; /* 20% visible */
+    opacity: 0.8; /* Optional: make it slightly transparent */
+}
+
+/* Sidenav opened state */
+mat-sidenav.opened {
+    width: 250px !important; /* 80% visible when open */
+}
+
+/* Customize mat-divider */
+mat-divider {
+    height: 2px;
+    background-color: #eee;
+    margin: 10px 0;
+}
+
+/* Sidenav content styles */
+mat-nav-list a.mat-list-item {
+    font-size: 14px;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+/* Sidenav list item hover */
+mat-nav-list a.mat-list-item:hover {
+    background-color: #333;
+    border-radius: 4px;
+}
+
+/* Spacer to push the logout link to the bottom */
+.spacer {
+    flex-grow: 1; /* Takes up remaining space */
+}

@@ -1,0 +1,45 @@
+<!-- navbar.component.html -->
+
+<mat-toolbar color="primary">
+    <span class="example-spacer"></span>
+    
+    <button mat-icon-button matTooltip="Notifications" class="example-icon favorite-icon">
+        <mat-icon>notifications</mat-icon>
+    </button>
+
+    <!-- <button mat-icon-button class="example-icon favorite-icon">
+        <mat-icon>add_to_photos</mat-icon>
+    </button> -->
+
+    <button mat-icon-button [matMenuTriggerFor]="sortLinks" matTooltip="Short Links"  class="example-icon favorite-icon">
+        <mat-icon>add_to_photos</mat-icon>
+      </button>
+      
+      <mat-menu #sortLinks="matMenu">
+        <button mat-menu-item>
+          <mat-icon>add_box</mat-icon>
+          <span><a mat-list-item [routerLink]="['manage-categories']" routerLinkActive="link-active">Add Categories</a></span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>add_box</mat-icon>
+          <span><a mat-list-item [routerLink]="['manage-products']" routerLinkActive="link-active">Add Product</a></span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>add_box</mat-icon>
+          <span><a mat-list-item [routerLink]="['manage-orders']" routerLinkActive="link-active">Add Order</a></span>
+        </button>
+
+      </mat-menu>
+    
+    <!-- Material Menu -->
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <!-- Add the hidden file input -->
+<!-- <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none" /> -->
+
+        <button mat-menu-item (click)="editProfile()"><mat-icon>account_circle</mat-icon> Edit Profile </button>
+        <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> Logout </button>
+    </mat-menu>
+</mat-toolbar>

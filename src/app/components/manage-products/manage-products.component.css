@@ -1,0 +1,140 @@
+.table-container {
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  position: relative; /* This will help in positioning sticky elements */
+}
+
+/* Table header sticky */
+th.mat-header-cell {
+  position: sticky; /* Make header sticky */
+  top: 0; /* Distance from the top */
+  background-color: #4a4e51; /* Ensure the background matches your table */
+  z-index: 1; /* Keep it above the table rows */
+}
+
+/* Paginator sticky */
+.mat-paginator {
+  position: sticky; /* Make paginator sticky */
+  bottom: 0; /* Stick to the bottom of the table container */
+  background-color: #4a4e51; /* Ensure the background matches your table */
+  z-index: 1; /* Keep it above other content */
+}
+
+/* Scrollbar styles (same as before) */
+.table-container::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  border-radius: 10px; /* Add border radius to scrollbar */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Make scrollbar thumb circular */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #6b6b6b; /* Darker color on hover */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background-color: #2e3134; /* Scrollbar track (background) color */
+}
+
+.table-container::-webkit-scrollbar-button {
+  display: none; /* This hides the scrollbar arrows */
+}
+
+/* Scrollbar styles for Firefox */
+.table-container {
+  scrollbar-width: thin; /* Makes the scrollbar thin */
+  scrollbar-color: #888 #2e3134; /* Scrollbar thumb and track color */
+}
+
+/* Make Firefox scrollbar thumb circular (limited support) */
+.table-container:hover {
+  scrollbar-color: #555 #2e3134; /* Darker scrollbar on hover */
+}
+
+/* Other existing styles remain unchanged */
+.card {
+  margin-top: 20px;
+}
+
+.button-and-search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align items to the start and end of the container */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+}
+
+.btn {
+  margin-left: 10px;
+  background-color: rgb(106, 143, 245);
+  color: white;
+  width: 8rem;
+}
+
+.btn:hover {
+  background-color: rgb(85, 120, 220);
+}
+
+.action-button {
+  min-width: auto; /* You can adjust this value based on your preference */
+}
+
+.filter-container {
+  width: 250px;
+  margin: 10px 20px 5px 10px; 
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  background-color: #4a4e51;
+  color: white;
+  table-layout: fixed; /* Ensure fixed layout for equal column widths */
+}
+
+/* Table header and data cell styling */
+th, td {
+  text-align: left;
+  overflow: hidden;
+}
+
+/* Set the default color for table columns */
+.matCol {
+  width: 14%; /* Adjust according to your column count */
+  color: white;
+}
+
+/* Hover effect for all rows except headers */
+table tr:hover td {
+  background-color: #1d2226; /* Change background color on hover */
+  cursor: pointer;
+}
+
+/* Ensure header cells (th) are not affected by hover */
+table th {
+  background-color: #4a4e51; /* Keep header background consistent */
+}
+
+/* Hover effect for buttons inside the actions column */
+.action-button:hover {
+  background-color: #1d2226; /* Change background color on hover */
+}
+
+/* Media Query for larger screens */
+@media only screen and (min-width: 768px) {
+  .filter-container {
+    margin: 10px 20px 5px 10px; /* Adjust margin for spacing */
+  }
+
+  td, th {
+    width: 25%; /* Adjust width for larger screens */
+  }
+}

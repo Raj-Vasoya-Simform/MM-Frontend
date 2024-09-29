@@ -1,0 +1,38 @@
+<div class="login-page">
+<mat-card style="color: white; background-color: #4a4e51;">
+    <mat-card-header>    
+     <!-- Heading -->
+        <h1><b>Admin Login</b></h1>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- LoginForm -->
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <!-- Username input field -->
+            <mat-form-field appearance="outline">
+                <mat-label class="matCol">Email</mat-label>
+                <input style="color: white;" matInput formControlName="email" />
+                <!-- Email Error Message with icon -->
+                <mat-error *ngIf="loginForm.get('email')?.invalid">
+                    Invalid Email. <mat-icon (click)="emailError()">info</mat-icon>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Password input field -->
+            <mat-form-field appearance="outline">
+                <mat-label class="matCol">Password</mat-label>
+                <input style="color: white;" matInput formControlName="password" type="{{ showPassword ? 'text' : 'password' }}" />
+                <mat-error *ngIf="loginForm.get('password')">
+                    Invalid Password <mat-icon (click)="passwordError()" style="cursor: pointer;">info</mat-icon>
+                </mat-error>
+                <!-- Show password icon -->
+                <mat-icon class="icon" (click)="togglePasswordVisibility()">
+                    {{ showPassword ? "visibility_off" : "visibility" }}
+                </mat-icon>
+            </mat-form-field>
+            <!-- Login Button -->
+            <button mat-raised-button class="btn">Login</button>
+            <a routerLink="/registration">New User ?</a>
+        </form>
+    </mat-card-content>
+</mat-card>
+</div>

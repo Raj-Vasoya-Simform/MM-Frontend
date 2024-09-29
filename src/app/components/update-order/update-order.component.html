@@ -1,0 +1,117 @@
+<!-- update-order.component.html -->
+<h2 class="dialog-title">Update Order</h2>
+
+<div class="close-icon" mat-dialog-close>
+    <mat-icon label="Close">close</mat-icon>
+</div>
+
+<div class="dialog-content">
+    <form #orderForm="ngForm" (ngSubmit)="submitOrder()" class="form-container">
+        <div class="form-fields-container">
+            
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>GST No of Supplier/Manufacturer</mat-label>
+                <input matInput name="gstNoSupplier" [(ngModel)]="orderFormGroup.value.gstNoSupplier" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Identification marks & numbers in any </mat-label>
+                <input matInput name="idMarks" [(ngModel)]="orderFormGroup.value.idMarks" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Description of Goods</mat-label>
+                <input matInput name="description" [(ngModel)]="orderFormGroup.value.descriptionOfGoods" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Quantity (nos./kgs.)</mat-label>
+                <input matInput type="number" name="quantity" [(ngModel)]="orderFormGroup.value.quantity" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>CGST Rs.</mat-label>
+                <input matInput type="number" name="cgstAmount" [(ngModel)]="orderFormGroup.value.cgstRs" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Rate of Tax</mat-label>
+                <mat-select name="rofCgst" [(ngModel)]="orderFormGroup.value.cgstRate" required>
+                    <mat-option value=9>9%</mat-option>
+                    <mat-option value=12>12%</mat-option>
+                    <mat-option value=23>23%</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Tariff Classification</mat-label>
+                <input matInput name="trafficClassification" [(ngModel)]="orderFormGroup.value.tariffClassification" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>SGST Rs.</mat-label>
+                <input matInput type="number" name="sgstAmount" [(ngModel)]="orderFormGroup.value.sgstRs" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Rate of Tax</mat-label>
+                <mat-select name="rofSgst" [(ngModel)]="orderFormGroup.value.sgstRate" required>
+                    <mat-option value=9>9%</mat-option>
+                    <mat-option value=12>12%</mat-option>
+                    <mat-option value=23>23%</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Date and Time of issue</mat-label>
+                <input matInput [matDatepicker]="dateTimePicker" name="dateTimeOfIssue" [(ngModel)]="orderFormGroup.value.dateTimeOfIssue" required>
+                <mat-datepicker-toggle matSuffix [for]="dateTimePicker"></mat-datepicker-toggle>
+                <mat-datepicker #dateTimePicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Integrated GST Rs.</mat-label>
+                <input matInput type="number" name="igstAmount" [(ngModel)]="orderFormGroup.value.integratedGstRs" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Rate of Tax</mat-label>
+                <mat-select name="rofIgst" [(ngModel)]="orderFormGroup.value.integratedGstRate" required>
+                    <mat-option value=9>9%</mat-option>
+                    <mat-option value=12>12%</mat-option>
+                    <mat-option value=23>23%</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Nature of processing / Manufacturing</mat-label>
+                <input matInput name="natureOfProcessing" [(ngModel)]="orderFormGroup.value.natureOfProcessing" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Factory Place of processing / Manufacturing</mat-label>
+                <input matInput name="address" [(ngModel)]="orderFormGroup.value.factoryPlace" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Expected duration of processing / Manufacturing</mat-label>
+                <input matInput type="number" name="duration" [(ngModel)]="orderFormGroup.value.duration" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Rate of Tax</mat-label>
+                <mat-select name="status" [(ngModel)]="orderFormGroup.value.status" required>
+                    <mat-option value=Pending>Pending</mat-option>
+                    <mat-option value="In Progress">In Progress</mat-option>
+                    <mat-option value=Delivered>Delivered</mat-option>
+                    <mat-option value=Cancelled>Cancelled</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="button-container">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!orderForm.valid">Update</button>
+                <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

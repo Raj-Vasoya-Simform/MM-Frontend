@@ -1,0 +1,19 @@
+.delete-form {
+    background-color: #4a4e51;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* border-radius: 8px; */
+    text-align: center;
+    width: 100%;
+}
+
+.confirmation-text {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

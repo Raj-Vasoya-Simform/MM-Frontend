@@ -1,0 +1,64 @@
+/* add-order.component.css */
+
+.dialog-title {
+  font-size: 24px;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.icon-close {
+  font-size: 24px;
+  color: white;
+  background-color: #f53d3d; /* Red background */
+  padding: 8px; /* Padding to create a square shape */
+  border: none; /* No border */
+  border-radius: 4px; /* Slightly rounded corners (optional) */
+  display: flex; /* Center the icon */
+  justify-content: center;
+  align-items: center;
+  width: 30px; /* Width of the square */
+  height: 30px; /* Height of the square */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for a raised effect */
+}
+
+.dialog-content {
+  padding: 20px;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.form-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.form-field input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+button {
+  min-width: 100px;
+}

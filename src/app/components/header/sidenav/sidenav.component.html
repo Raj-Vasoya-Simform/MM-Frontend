@@ -1,0 +1,51 @@
+<mat-nav-list class="p-1">
+    <a style="cursor: default;" mat-list-item>
+        <mat-icon class="mx-2 profile-image-container"> <img src="../../../../assets/raj.jpg" alt="Profile Image"></mat-icon>
+        <span style="color: white; font-size: 14px;">SHREE GANESH EXPORT</span>
+    </a>
+</mat-nav-list>
+
+<mat-divider></mat-divider>
+
+<!-- Sidenav Container -->
+<mat-sidenav-container class="sidenav-container">
+    <!-- Add 'opened' binding to control visibility -->
+    <mat-sidenav #sidenav mode="side" [(opened)]="Istoggle">
+        <!-- Sidenav content can go here -->
+    </mat-sidenav>
+</mat-sidenav-container>
+
+<!-- Button to toggle the sidenav -->
+<!-- <button class="sidenav-toggle" (click)="toggle()">
+    
+    <mat-icon *ngIf="Istoggle">arrow_back</mat-icon>
+    <mat-icon *ngIf="!Istoggle">arrow_forward</mat-icon>
+</button> -->
+
+<!-- Company Name -->
+<!-- <h2 class="mat-subheader my-4" style="text-align: center;" matRipple>SHREE GANESH EXPORTS</h2> -->
+
+<!-- Side nav content -->
+<mat-nav-list class="p-1">
+    <a mat-list-item class="headline" [routerLink]="['/dashboard']" routerLinkActive="link-active">
+        <mat-icon class="mx-2">dashboard</mat-icon><span class="headline">Dashboard</span>
+    </a>
+    <a mat-list-item class="headline" [routerLink]="['manage-categories']" routerLinkActive="link-active">
+        <mat-icon class="mx-2">category</mat-icon><span class="headline">Manage Categories</span>
+    </a>
+    <a mat-list-item class="headline" [routerLink]="['manage-products']" routerLinkActive="link-active">
+        <mat-icon class="mx-2">shopping_cart</mat-icon><span class="headline">Manage Products</span>
+    </a>
+    <a mat-list-item class="headline" [routerLink]="['manage-orders']" routerLinkActive="link-active">
+        <mat-icon class="mx-2">analytics</mat-icon><span class="headline">Manage Orders</span>
+    </a>
+    <a mat-list-item class="headline" [routerLink]="['history']" routerLinkActive="link-active">
+        <mat-icon class="mx-2">history</mat-icon><span class="headline">History</span>
+    </a>
+    <div class="spacer"></div>
+
+  <!-- Logout link -->
+  <a style="margin-top: 100%" mat-list-item class="headline" (click)="logout()" routerLinkActive="link-active">
+    <mat-icon class="mx-2">logout</mat-icon><span class="headline">Logout</span>
+  </a>
+</mat-nav-list>

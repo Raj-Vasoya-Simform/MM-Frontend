@@ -1,0 +1,57 @@
+<mat-card style="color: white; background-color: #4a4e51;">
+    <mat-card-header>
+        <!-- Heading -->
+        <h1><b>Admin Registeration</b></h1>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- Registration Form -->
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+            <!-- Email input field -->
+            <mat-form-field appearance="outline">
+                <mat-label style="color: white;">Email</mat-label>
+                <input style="color: white;" matInput formControlName="email" />
+                <!-- Email Error Message with icon -->
+                <mat-error *ngIf="registerForm.get('email')?.invalid">
+                    Invalid Email. <mat-icon (click)="emailError()">info</mat-icon>
+                </mat-error>
+
+                <!-- GST NUmber input field -->
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label style="color: white;">GST Number</mat-label>
+                <input style="color: white;" matInput formControlName="gstNumber" />
+                <!-- GST NUmber Error Message with icon -->
+                <mat-error *ngIf="registerForm.get('gstNumber')?.dirty">
+                    GST Number should not exceed 15 characters. <mat-icon (click)="gstNumberError()">info</mat-icon>
+                </mat-error>
+            </mat-form-field>
+            <!-- Password input field -->
+            <mat-form-field appearance="outline">
+                <mat-label style="color: white;">Password</mat-label>
+                <input style="color: white;" matInput formControlName="password" type="{{ showPassword ? 'text' : 'password' }}" />
+                <!-- Show password icon -->
+                <mat-icon class="password" (click)="togglePasswordVisibility()">
+                    {{ showPassword ? "visibility_off" : "visibility" }}
+                </mat-icon>
+                <!-- Password Error Message with icon -->
+                <mat-error *ngIf="registerForm.get('password')?.invalid">
+                    Invalid Password. <mat-icon (click)="passwordError()">info</mat-icon>
+                </mat-error>
+            </mat-form-field>
+            <!-- Confirm Password input field -->
+            <mat-form-field appearance="outline">
+                <mat-label style="color: white;">Confirm Password</mat-label>
+                <input style="color: white;" matInput formControlName="confirmPassword" type="{{ showPassword ? 'text' : 'password' }}"
+                    (blur)="checkPasswordMatch()" />
+                <!-- Confirm Password Error Message with icon -->
+                <mat-error *ngIf="registerForm.get('confirmPassword')?.invalid">
+                    Invalid Confirm Password. <mat-icon (click)="confirmPasswordError()">info</mat-icon>
+                </mat-error>
+            </mat-form-field>
+            <!-- Registration Button -->
+            <button mat-raised-button color="primary">Register</button>
+            <a routerLink="">Back to Login</a>
+        </form>
+    </mat-card-content>
+</mat-card>

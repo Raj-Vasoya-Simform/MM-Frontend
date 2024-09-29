@@ -1,0 +1,71 @@
+<div style="color: white; background-color: #4a4e51;" class="dialog-content">
+ 
+  <h2 class="dialog-title" style="color: white; background-color: #4a4e51;">Add Product</h2>
+  
+  <div style="color: white; background-color: #4a4e51;" class="close-icon" mat-dialog-close>
+    <mat-icon style="color: white; background-color: #f53d3d;" label="Close">close</mat-icon>
+  </div>
+  
+  <form #productForm="ngForm" (ngSubmit)="submitProduct()" class="form-container">
+    <div class="form-fields-container">
+      
+      <!-- Group name, qty, and category in one row -->
+      <div class="field-row">
+        <mat-form-field class="form-field">
+          <mat-label style="color: black;">Product Name</mat-label>
+          <input style="color: black;" matInput name="name" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label style="color: black;">Category</mat-label>
+          <mat-select name="category_id" [(ngModel)]="selectedCategoryId" required>
+            <mat-option *ngIf="categories.length === 0" (click)="addNewCategory()">
+              <button mat-button color="primary" class="center-option" style="background-color: rgb(106, 143, 245); color: white;">
+                + Add Category
+              </button>
+            </mat-option>            
+            <mat-option *ngFor="let category of categories" [value]="category._id">
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label style="color: black;">Qty</mat-label>
+          <input style="color: black;" matInput type="number" name="qty" ngModel required>
+        </mat-form-field>
+      </div>
+
+      <!-- Group price and description in another row -->
+      <div class="field-row">
+        <mat-form-field class="form-field">
+          <mat-label style="color: black;">Taxes</mat-label>
+          <mat-select name="category_id" [(ngModel)]="selectedCategoryId" required>
+            <mat-option *ngIf="categories.length === 0" (click)="addNewCategory()" class="add-category-option">
+              <button mat-button color="primary" style="text-align: left;">+ Add New Category</button>
+            </mat-option>
+            <mat-option *ngFor="let category of categories" [value]="category._id">
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>        
+
+        <mat-form-field class="form-field">
+          <mat-label style="color: black;">Price</mat-label>
+          <input style="color: black;" matInput type="number" name="price" ngModel required>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label style="color: black;">Description</mat-label>
+          <input style="color: black;" matInput name="description" ngModel required>
+        </mat-form-field>
+      </div>
+
+      <div class="button-container">
+        <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+        <button mat-raised-button style="background-color: rgb(106, 143, 245); color: white;" type="submit" [disabled]="!productForm.valid">Add</button>
+      </div>
+
+    </div>
+  </form>
+</div>

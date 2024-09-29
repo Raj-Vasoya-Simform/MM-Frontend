@@ -1,0 +1,40 @@
+<!-- <div @slideFromTop> -->
+<!-- add-order.component.html -->
+
+<div style="color: white; background-color: #4a4e51;" class="dialog-content">
+ 
+  <h2 class="dialog-title" style="color: white; background-color: #4a4e51;">Add Category</h2>
+
+  <div style="color: white; background-color: #4a4e51;" class="close-icon" mat-dialog-close>
+      <mat-icon style="color: white; background-color: #f53d3d;" label="Close">close</mat-icon>
+  </div>
+
+  <form #categoryForm="ngForm" (ngSubmit)="submitCategory()" class="form-container">
+    <div class="form-fields-container">
+        
+        <mat-form-field class="form-field">
+            <mat-label style="color: black;">Category Name</mat-label>
+            <input style="color: black;" matInput name="name" ngModel required>
+          </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;">Status</mat-label>
+        <mat-select name="status" ngModel required>
+          <mat-option value=Enable>Enable</mat-option>
+          <mat-option value=Disable>Disable</mat-option>
+        </mat-select>
+      </mat-form-field>
+   
+
+    <div class="button-container">
+      <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+      <button mat-raised-button style="background-color: rgb(106, 143, 245); color: white;" type="submit" [disabled]="!categoryForm.valid">Add</button>
+     </div>
+
+    </div>
+
+    </form>
+</div>
+<!-- </div> -->
+<!-- add-order.component.html -->
+

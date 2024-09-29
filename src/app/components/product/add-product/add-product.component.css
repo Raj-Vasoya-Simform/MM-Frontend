@@ -1,0 +1,60 @@
+.dialog-title {
+  font-size: 24px;
+  /* margin-bottom: 20px;
+  align-items: center;
+  text-align: center;
+  justify-content: center; */
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.dialog-content {
+  padding: 20px;
+  position: relative; /* Needed for absolute positioning of close icon */
+}
+
+.form-container {
+  width: 100%;
+}
+
+.form-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-field {
+  flex: 1; /* Allow fields to take equal width */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.center-option {
+  margin-left: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.add-category-option{
+  background-color: rgb(106, 143, 245);
+  padding: 5px;
+}
+
+button {
+  min-width: 100px;
+}

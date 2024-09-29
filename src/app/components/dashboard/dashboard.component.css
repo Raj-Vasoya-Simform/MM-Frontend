@@ -1,0 +1,218 @@
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  position: sticky;
+}
+
+h3 {
+  margin: 20px;
+}
+
+.icon {
+  background-color: white;
+}
+
+.example-card {
+  max-width: 100%;
+  width: 100%;
+  margin: 3px auto;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #4a4e51;
+}
+
+.example-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px #1d2226;
+  background-color: #2c3033;
+}
+
+/* Base style for the badge */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Styles for different status types */
+.status-pending {
+  background-color: orange;
+}
+
+.status-delivered {
+  background-color: green;
+}
+
+.status-in-progress {
+  background-color: blue;
+}
+
+.status-cancelled {
+  background-color: red;
+}
+
+.status-default {
+  background-color: gray;
+}
+
+.img {
+  width: auto;
+  margin-right: 20px;
+  height: auto;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .example-card {
+    max-width: 100%;
+  }
+
+  .img {
+    height: 95px;
+  }
+}
+
+/* Make the table container responsive with custom scrollbar */
+.table-container {
+  overflow-y: auto; /* Enable vertical scrolling */
+  width: 100%;
+  max-height: 400px; /* Set a max height for the table container */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #888 transparent; /* For Firefox */
+}
+
+/* Webkit-based browsers (Chrome, Safari, etc.) */
+.table-container::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scroll thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
+
+/* Hides the arrow buttons in the scrollbar */
+.table-container::-webkit-scrollbar-button {
+  display: none; /* This removes the scroll arrows */
+}
+
+table {
+  width: 100%;
+  table-layout: auto;
+}
+
+th, td {
+  text-align: left;
+  white-space: nowrap;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #1d2226;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #1d2226;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.card.table {
+  margin-top: 20px;
+  margin-bottom: 1px;
+  background-color: #4a4e51;
+  color: white;
+}
+
+.headline {
+  background-color: #4a4e51;
+}
+
+.matCol {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+    width: 100%;
+  }
+
+  thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  tr {
+    margin-bottom: 15px; /* Add space between rows */
+  }
+
+  th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td::before {
+    position: absolute;
+    left: 10px;
+    width: 40%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-label);
+    text-align: left;
+  }
+}

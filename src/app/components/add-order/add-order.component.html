@@ -1,0 +1,118 @@
+<!-- add-order.component.html -->
+
+
+<div class="dialog-content" style="color: white; background-color: #4a4e51;">
+
+  <h2 class="dialog-title" style="color: white; background-color: #4a4e51;">Add Order</h2>
+
+  <div style="color: white; background-color: #4a4e51;" class="close-icon" mat-dialog-close>
+    <mat-icon style="color: white; background-color: #f53d3d;" label="Close">close</mat-icon>
+</div>
+
+  <form #orderForm="ngForm" (ngSubmit)="submitOrder()" class="form-container">
+    <div class="form-fields-container">
+        
+        <mat-form-field class="form-field">
+            <mat-label style="color: black;" >GST No of Supplier/Manufacturer</mat-label>
+            <input style="color: black;" matInput name="gstNoSupplier" ngModel required>
+          </mat-form-field>
+
+          <mat-form-field class="form-field">
+            <mat-label style="color: black;" >Identification marks & numbers in any </mat-label>
+            <input style="color: black;" matInput name="idMarks" ngModel required>
+          </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Description of Goods</mat-label>
+        <input style="color: black;" matInput name="description" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Quantity (nos./kgs.)</mat-label>
+        <input style="color: black;" matInput type="number" name="quantity" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >CGST Rs.</mat-label>
+        <input style="color: black;" matInput type="number" name="cgstAmount" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Rate of Tax</mat-label>
+        <mat-select name="black" name="rofCgst" ngModel required>
+          <mat-option value=9>9%</mat-option>
+          <mat-option value=12>12%</mat-option>
+          <mat-option value=23>23%</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Tariff Classification</mat-label>
+        <input style="color: black;" matInput name="trafficClassification" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >SGST Rs.</mat-label>
+        <input style="color: black;" matInput type="number" name="sgstAmount" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Rate of Tax</mat-label>
+        <mat-select name="black" name="rofSgst" ngModel required>
+          <mat-option value=9>9%</mat-option>
+          <mat-option value=12>12%</mat-option>
+          <mat-option value=23>23%</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Date and Time of issue</mat-label>
+        <input style="color: black;" matInput [matDatepicker]="dateTimePicker" name="order_date" ngModel required>
+        <mat-datepicker-toggle matSuffix [for]="dateTimePicker"></mat-datepicker-toggle>
+        <mat-datepicker #dateTimePicker></mat-datepicker>
+    </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Integrated GST Rs.</mat-label>
+        <input style="color: black;" matInput type="number" name="igstAmount" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Rate of Tax</mat-label>
+        <mat-select name="black" name="rofIgst" ngModel required>
+          <mat-option value=9>9%</mat-option>
+          <mat-option value=12>12%</mat-option>
+          <mat-option value=23>23%</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Nature of processing / Manufacturering</mat-label>
+        <input style="color: black;" matInput name="natureOfProcessing" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Factory Place of processing / Manufacturering</mat-label>
+        <input style="color: black;" matInput name="address" ngModel required>
+      </mat-form-field>
+   
+
+    <mat-form-field class="form-field">
+        <mat-label style="color: black;" >Expected duration of processing / Manufacturering</mat-label>
+        <input style="color: black;" matInput type="number" name="duration" ngModel required>
+      </mat-form-field>
+   
+
+    <div class="button-container">
+      <button mat-raised-button style="background-color: rgb(106, 143, 245); color: white;" type="submit" [disabled]="!orderForm.valid">Submit</button>
+      <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+     </div>
+
+    </div>
+
+    </form>
+</div>
+
+<!-- add-order.component.html -->
+

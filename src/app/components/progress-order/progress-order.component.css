@@ -1,0 +1,112 @@
+/* Custom Scrollbar Styles */
+.table-container {
+  overflow-y: auto;
+  max-height: 400px; /* Adjust the height as needed */
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+.table-container::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Make scrollbar thumb circular */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #6b6b6b; /* Darker color on hover */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background-color: #2e3134; /* Scrollbar track (background) color */
+}
+
+/* Sticky Header Style */
+.mat-header-cell {
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Ensures header stays above the table content */
+  background-color: #4a4e51; /* Matches your table header color */
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(241, 239, 239, 0.959);
+}
+
+.button-and-search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align items to the start and end of the container */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align items to the start and end of the container */
+  flex-wrap: wrap;
+  width: 250px;
+  margin: 10px 20px 5px 10px; 
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td {
+  width: 100%;
+} 
+
+th {
+  width: 100%; /* Full width for smaller screens */
+}
+
+.custom-order-date {
+  min-width: 150px;  /* Adjust the font size according to your preference */
+  color: white;
+}
+
+.matCol {
+  color: white;
+}
+
+/* Base style for the badge */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize; /* Capitalizes the first letter */
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Styles for different status types */
+.status-in-progress {
+  background-color: blue; /* Progress Order color */
+}
+
+/* Add these styles for the buttons */
+.mat-button[color="primary"],
+.mat-raised-button[color="primary"] {
+  background-color: #007bff; /* Adjust the color to your preference */
+  color: #fff;
+}
+
+/* Media Query for larger screens */
+@media only screen and (min-width: 768px) {
+  .filter-container {
+      margin: 10px 20px 5px 10px; /* Adjust margin for spacing */
+  }
+
+  td,
+  th {
+      width: 25%;
+  }
+}

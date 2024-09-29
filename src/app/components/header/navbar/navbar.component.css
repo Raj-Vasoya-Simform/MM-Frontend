@@ -1,0 +1,104 @@
+/* Base styles for larger screens (desktop) */
+.mat-toolbar {
+  top: 10px;
+  background-color: #4a4e51;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically in the center */
+  position: sticky;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 16px; /* Space between title and icons */
+}
+
+.live-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1rem;
+  margin-right: 16px;
+}
+
+.clock-icon {
+  color: white;
+  margin-right: 8px; /* Adjust the margin as needed */
+}
+
+.example-icon,
+.favorite-icon {
+  color: white;
+  font-size: 1.5rem; /* Base size of the icons */
+  margin-left: 8px; /* Spacing between icons */
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+/* Responsive styles for tablet screens (below 768px) */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 1.2rem;
+    margin-right: 10px; /* Reduced margin */
+  }
+
+  .live-clock {
+    font-size: 0.9rem; /* Reduce clock font size */
+    margin-right: 10px;
+  }
+
+  .clock-icon {
+    margin-right: 6px; /* Adjust margin */
+    font-size: 1.3rem; /* Reduce icon size slightly */
+  }
+
+  .example-icon,
+  .favorite-icon {
+    font-size: 1.3rem; /* Slightly reduce icon size */
+    margin-left: 6px; /* Adjust spacing */
+  }
+
+  .mat-toolbar {
+    padding: 0 8px; /* Less padding on smaller screens */
+  }
+}
+
+/* Responsive styles for mobile screens (below 480px) */
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1rem;
+    margin-right: 6px; /* Reduced margin for mobile */
+  }
+
+  .live-clock {
+    font-size: 0.8rem; /* Smaller clock size */
+    margin-right: 6px;
+    align-items: flex-start; /* Align clock to the left */
+  }
+
+  .clock-icon {
+    font-size: 1rem; /* Reduce clock icon size */
+    margin-right: 4px; /* Less margin */
+  }
+
+  .example-icon,
+  .favorite-icon {
+    font-size: 1.2rem; /* Reduce icon size for mobile */
+    margin-left: 4px; /* Adjust spacing between icons */
+  }
+
+  .mat-toolbar {
+    flex-direction: row; /* Stack horizontally on mobile */
+    justify-content: space-between; /* Ensure space between items */
+    align-items: center; /* Align vertically */
+    padding: 0 4px; /* Even smaller padding */
+  }
+
+  .live-clock {
+    align-self: flex-end; /* Keep clock aligned to the right if possible */
+  }
+}

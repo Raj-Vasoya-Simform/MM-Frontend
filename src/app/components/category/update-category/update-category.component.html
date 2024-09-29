@@ -1,0 +1,39 @@
+<!-- add-order.component.html -->
+
+<div style="color: white; background-color: #4a4e51;" class="dialog-content">
+
+  <h2 class="dialog-title">Update Category</h2>
+
+  <div style="color: white; background-color: #4a4e51;" class="close-icon" mat-dialog-close>
+    <mat-icon style="color: white; background-color: #f53d3d;" label="Close">close</mat-icon>
+</div>
+
+  <form #categoryForm="ngForm" (ngSubmit)="submitCategory()" class="form-container">
+    <div class="form-fields-container">
+        
+        <mat-form-field class="form-field">
+            <mat-label>Category Name</mat-label>
+            <input matInput name="name" [(ngModel)]="categoryFormGroup.value.name" required>
+          </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Status</mat-label>
+        <mat-select style="color: black !important; " name="status" [(ngModel)]="categoryFormGroup.value.status" required>
+          <mat-option value=Enable>Enable</mat-option>
+          <mat-option value=Disable>Disable</mat-option>
+        </mat-select>
+      </mat-form-field>
+   
+
+    <div class="button-container">
+      <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!categoryForm.valid">Add</button>
+     </div>
+
+    </div>
+
+    </form>
+</div>
+
+<!-- add-order.component.html -->
+

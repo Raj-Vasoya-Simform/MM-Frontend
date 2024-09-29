@@ -1,0 +1,83 @@
+<div class="card mb-4" style="color: white; background-color: #4a4e51;">
+  <h3 class="mb-0 px-3 py-4" style="font-size: 20px;"><b>Manage Product</b></h3>
+</div>
+
+<mat-tab-group style="color: white; background-color: #4a4e51;" class="custom-tab-group">
+  <mat-tab label="Products">
+      <div class="button-and-search-container">
+          <button class="btn" (click)="addProduct()">Add Product</button>
+          <div class="filter-container">
+              <mat-form-field appearance="outline">
+                  <mat-label class="text-color">Search</mat-label>
+                  <input class="text-color" matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+              </mat-form-field>
+          </div>
+      </div>
+
+      <div class="mat-elevation-z8 table-container">
+          <table mat-table [dataSource]="dataSource" matSort>
+
+              <!-- ID Column -->
+              <ng-container matColumnDef="unique_id">
+                  <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Unique ID </th>
+                  <td mat-cell class="matCol" *matCellDef="let row"> {{row.unique_id}} </td>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                  <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Name </th>
+                  <td mat-cell class="matCol" *matCellDef="let row"> {{row.name}} </td>
+              </ng-container>
+
+              <!-- Qty Column -->
+              <ng-container matColumnDef="qty">
+                  <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Qty </th>
+                  <td mat-cell class="matCol" *matCellDef="let row"> {{row.qty}} </td>
+              </ng-container>
+
+              <!-- Price Column -->
+              <ng-container matColumnDef="price">
+                  <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Price </th>
+                  <td mat-cell class="matCol" *matCellDef="let row"> {{row.price}} </td>
+              </ng-container>
+
+              <!-- Category Name Column -->
+              <ng-container matColumnDef="categoryName">
+                  <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Category Name </th>
+                  <td mat-cell class="matCol" *matCellDef="let row"> {{row.categoryName}} </td>
+              </ng-container>
+
+              <!-- Description Column -->
+              <ng-container matColumnDef="description">
+                  <th mat-header-cell class="matCol" *matHeaderCellDef mat-sort-header> Description </th>
+                  <td mat-cell class="matCol" *matCellDef="let row"> {{row.description}} </td>
+              </ng-container>
+
+              <!-- Action Column -->
+              <ng-container matColumnDef="actions">
+                  <th mat-header-cell class="matCol" *matHeaderCellDef> Actions </th>
+                  <td mat-cell class="matCol" *matCellDef="let row">
+                      <div class="btns">
+                          <button mat-button class="action-button" color="primary" (click)="updateProduct(row)">
+                              <mat-icon>edit</mat-icon>
+                          </button>
+                          <button mat-button class="action-button" color="warn" (click)="deleteProduct(row)">
+                              <mat-icon>delete</mat-icon>
+                          </button>
+                      </div>
+                  </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr>
+          </table>
+
+          <mat-paginator style="color: white; background-color: #4a4e51;" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+  </mat-tab>
+</mat-tab-group>
