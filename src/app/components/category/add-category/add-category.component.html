@@ -9,6 +9,9 @@
       <mat-icon style="color: white; background-color: #f53d3d;" label="Close">close</mat-icon>
   </div>
 
+  <!-- Loading Bar -->
+<mat-progress-bar *ngIf="loading" mode="indeterminate" color="warn"></mat-progress-bar>
+
   <form #categoryForm="ngForm" (ngSubmit)="submitCategory()" class="form-container">
     <div class="form-fields-container">
         

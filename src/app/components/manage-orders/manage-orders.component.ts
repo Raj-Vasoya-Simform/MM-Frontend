@@ -28,6 +28,7 @@ export class ManageOrdersComponent implements AfterViewInit, OnInit, OnChanges {
   displayedColumns: string[] = ['select', 'order_no', 'gstNoSupplier', 'quantity', 'order_date', 'duration', 'status', 'actions'];
   dataSource = new MatTableDataSource<orderData>(this.allOrdersData);
   selection = new SelectionModel<orderData>(true, []);
+  loading: boolean = false;
 
   // Using a single set of MatPaginator and MatSort for all data sources
   @ViewChild(MatPaginator) paginator?: MatPaginator;
@@ -45,8 +46,10 @@ ngOnChanges(changes: SimpleChanges): void {
 }
 
   fetchOrders() {
+    this.loading = true;  // Start loading bar
     this.orderService.getAllOrders().subscribe(
       (res: any) => {
+        this.loading = false;  // Stop loading bar
         this.allOrdersData = res.data;
         this.dataSource.data = this.allOrdersData;
         this.setPaginatorAndSort();

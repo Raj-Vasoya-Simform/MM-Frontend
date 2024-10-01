@@ -54,6 +54,7 @@ export class DashboardComponent implements OnInit {
   inProgressOrderCount = 0;
   deliveredOrderCount = 0;
   cancelledOrderCount = 0;
+  loading: boolean = false;
 
   columnsToDisplay = ["order_no", "customer", "quantity", "order_date", "status"];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
@@ -79,8 +80,10 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchRecentOrders() {
+    this.loading = true;  // Start loading bar
     this.recentOrder.getRecentOrders().subscribe(
       (res: any) => {
+        this.loading = false;  // Stop loading bar
         this.dataSource.data = res.data;
       },
       (error) => {

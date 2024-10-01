@@ -12,6 +12,7 @@ export class HistoryComponent implements OnInit {
   selectedModule: string = '';
   displayCount: number = 10;
   modules: string[] = ['All History', 'Category', 'Sales Order', 'Product'];  // Add actual module names
+  loading: boolean = false;
 
   constructor(private historyService: SharedServices) {}
 
@@ -20,8 +21,10 @@ export class HistoryComponent implements OnInit {
   }
   
   fetchHistory() {
+    this.loading = true;  // Start loading bar
     this.historyService.getAllHistory()
       .subscribe((response: any) => {
+        this.loading = false;  // Stop loading bar
         this.history = response.data;
         this.filteredHistory = this.history; // Initialize with full history
       });

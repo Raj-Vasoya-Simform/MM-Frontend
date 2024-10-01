@@ -24,6 +24,7 @@ constructor(
   dataSource = new MatTableDataSource<CategoryData>(this.allCategoriesData);
 
   displayedColumns: string[] = ['name', 'status', 'actions'];
+  loading: boolean = false;
 
   // Reference to MatPaginator and MatSort
   @ViewChild(MatPaginator) paginator?: MatPaginator;
@@ -73,9 +74,12 @@ viewCategory(row: any) {
   this.addCategoryService.openViewCategoryDialog(row);
 }
 
+
 fetchCategories() {
+  this.loading = true;  // Start loading bar
   this.categoryService.getAllCategories().subscribe(
     (res: any) => {
+      this.loading = false;  // stop loading bar
       this.allCategoriesData = res.data;
       this.dataSource.data = this.allCategoriesData;
       this.setPaginatorAndSort();

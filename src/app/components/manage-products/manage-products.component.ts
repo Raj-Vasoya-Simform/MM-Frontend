@@ -24,6 +24,7 @@ export class ManageProductsComponent implements AfterViewInit {
   dataSource = new MatTableDataSource<productData>(this.allProductsData);
 
   displayedColumns: string[] = ['unique_id', 'name', 'qty', 'price', 'categoryName', 'description', 'actions'];
+  loading: boolean = false;
 
   // Reference to MatPaginator and MatSort
   @ViewChild(MatPaginator) paginator?: MatPaginator;
@@ -69,8 +70,10 @@ deleteProduct(row: any) {
 }
 
 fetchProducts() {
+  this.loading = true;  // Start loading bar
   this.productService.getAllProducts().subscribe(
     (res: any) => {
+      this.loading = false;  // stop loading bar
       this.allProductsData = res.data;
       this.dataSource.data = this.allProductsData;
       this.setPaginatorAndSort();

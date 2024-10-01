@@ -19,7 +19,14 @@ html {
     --mat-paginator-enabled-icon-color: white !important;
     --mat-paginator-disabled-icon-color: white !important;
     --mdc-outlined-text-field-input-text-placeholder-color: white !important;
+
+
+    .mat-mdc-progress-bar.mat-warn {
+      --mdc-linear-progress-active-indicator-color: red !important;
+      --mdc-linear-progress-track-color: rgb(172, 89, 89);
+  }
 }
+
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;

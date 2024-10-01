@@ -15,6 +15,7 @@ export class AddCategoryComponent implements OnInit{
   @Output() categorySubmitted = new EventEmitter<any>();
 
   categoryFormGroup!: FormGroup;
+  loading: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<AddCategoryComponent>,
@@ -39,6 +40,7 @@ export class AddCategoryComponent implements OnInit{
 
   submitCategory(): void {
     if (this.categoryFormGroup.valid) {
+      this.loading = true;  // Start loading bar
       const formData = this.categoryForm.value;
       this.categorySubmitted.emit(formData); // Emit the form data
       this.dialogRef.close();
@@ -46,7 +48,7 @@ export class AddCategoryComponent implements OnInit{
       // Assuming you have a method in orderService to handle the API requests
       this.categoryService?.storeCategory(formData)?.subscribe(
         (res: any) => {
-
+          this.loading = false;  // stop loading bar
             // Success Message
             this.toastr.success('Category Created Successfully.', 'Success', {
               timeOut: 2000,

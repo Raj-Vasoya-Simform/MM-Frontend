@@ -10,7 +10,7 @@ import { LoginFormData } from '../components/authentication/login/login.componen
 export class SharedServices {
   // Notice API URL
   // apiUrl = 'http://localhost:4000';
-  apiUrl = 'https://modern-manager.onrender.com';
+  apiUrl = 'https://modern-manager.up.railway.app';
 
     // Create a subject to notify components about updated orders
     private orderUpdatedSubject = new BehaviorSubject<any>(null);

@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   userData: any;
   showPassword: boolean = false;
   gstNumberErrorMessageShown = false;
+  loading: boolean = false;  // Loading bar controller
 
   constructor(
     private toastr: ToastrService,
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
     sessionStorage.clear();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
+
   // Login Form
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -36,34 +38,36 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  
   // Login functionality
   onLogin() {
     if (this.loginForm.valid) {
+      this.loading = true;  // Start loading bar
       const { email, password } = this.loginForm.value;
       const loginData = { email, password };
-  
+
       this.loginService.login(loginData).subscribe(
         (res: any) => {
-  
+          this.loading = false;  // Stop loading bar
+
           // Assuming that the response contains a token or some indicator of successful login
           if (res && res.token) {
-
             this.authService.setLoggedIn(true);
 
-            // Customization: You may want to store the token in localStorage for future API requests
+            // Customization: Store the token in localStorage for future API requests
             localStorage.setItem('token', res.token);
-  
+
             // Success Message
             this.toastr.success('Login Successfully.', 'Success', {
               timeOut: 2000,
             });
-  
-            // Customization: Redirect to dashboard or any other desired page upon successful login
+
+            // Redirect to dashboard or any other desired page upon successful login
             this.router.navigate(['/dashboard']);
           }
         },
         (error) => {
+          this.loading = false;  // Stop loading bar
+
           if (error.status === 401) {
             this.authService.setLoggedIn(false);
             // Handle 401 Unauthorized error
@@ -71,7 +75,7 @@ export class LoginComponent implements OnInit {
               timeOut: 1500,
             });
           } else {
-            // Customization: You may want to provide more specific error messages based on the error response
+            // Customization: Specific error messages based on the error response
             this.toastr.error('Invalid Credentials or Server Error', 'Error', {
               timeOut: 1500,
             });
@@ -83,7 +87,6 @@ export class LoginComponent implements OnInit {
       this.toastr.warning('Please enter valid data.');
     }
   }
-  
 
   gstNumberError() {
     this.toastr.warning(
@@ -97,16 +100,11 @@ export class LoginComponent implements OnInit {
     this.gstNumberErrorMessageShown = true;
   }
 
-    // Email error toastr
-    emailError() {
-      this.toastr.warning(
-        'Invalid Email',
-        'Required',
-        {
-          timeOut: 2000,
-        }
-      );
-    }
+  emailError() {
+    this.toastr.warning('Invalid Email', 'Required', {
+      timeOut: 2000,
+    });
+  }
 
   passwordError() {
     this.toastr.warning(
@@ -119,13 +117,12 @@ export class LoginComponent implements OnInit {
       'Password Error',
       {
         timeOut: 5000,
-        enableHtml: true, // Enable HML content
+        enableHtml: true, // Enable HTML content
       }
     );
 
     this.gstNumberErrorMessageShown = true;
   }
-
 
   // Show password functionality
   togglePasswordVisibility() {

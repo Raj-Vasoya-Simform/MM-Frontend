@@ -180,6 +180,11 @@ tr.example-element-row:not(.example-expanded-row):active {
   color: white;
 }
 
+mat-progress-bar {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 @media screen and (max-width: 768px) {
   table {
     display: block;
